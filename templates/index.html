@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+    <header>
+        <title> {{head}} </title>
+    </header>
+    <body>
+        <h1> {{title}} </h1>
+        <p> {{description}} </p>
+        <p id="currentTime" ></p>
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Python-logo-notext.svg/1200px-Python-logo-notext.svg.png"    width="150px" height="150px" alt="Geeks">
+    </body>
+
+<script>
+    function showTime() {
+        // Получаем текущее время по местоположению
+        const currentTime = new Date().toLocaleString("en-US", { timeZoneName: "short" });
+        document.getElementById('currentTime').innerHTML = currentTime;
+    }
+    
+    showTime();
+    setInterval(function () {
+        showTime();
+    }, 1000);
+    
+</script>
+
+</html>
+
+
