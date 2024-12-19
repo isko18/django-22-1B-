@@ -1,12 +1,9 @@
 from django.shortcuts import render
+from main.models import Main
 
 # Create your views here.
 def main(requset):
-    context = {
-        'head': "Geeks",
-        'title': "Привет Geeks",
-        'description': 'Время'
-    }
-    return render(requset, 'index.html', context=context)
+    main = Main.objects.all()
+    return render(requset, 'index.html', locals())
 
 

@@ -4,15 +4,27 @@
         <title> {{head}} </title>
     </header>
     <body>
-        <h1> {{title}} </h1>
-        <p> {{description}} </p>
-        <p id="currentTime" ></p>
-        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Python-logo-notext.svg/1200px-Python-logo-notext.svg.png"    width="150px" height="150px" alt="Geeks">
-    </body>
+
+        <style>
+            div{
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                flex-direction: column;
+            }
+        </style>
+        {% for x in main %}
+        <div>
+            <h1> {{x.title}} </h1>
+            <p> {{x.description}} </p>
+            <p id="currentTime" ></p>
+            <img src="{{x.image.url}}" width="150px" height="150px" alt="IO">
+        </div>
+        {% endfor %}
+    </body> 
 
 <script>
     function showTime() {
-        // Получаем текущее время по местоположению
         const currentTime = new Date().toLocaleString("en-US", { timeZoneName: "short" });
         document.getElementById('currentTime').innerHTML = currentTime;
     }
